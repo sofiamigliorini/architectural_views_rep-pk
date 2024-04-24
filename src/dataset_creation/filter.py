@@ -12,6 +12,7 @@ import pandas as pd
 import os
 import requests
 from urllib.parse import urlparse
+from src.config import output_folder
 
 
 def filter_dataframe(input_file, output_file, min_commits_count=10, min_stars_count=2,
@@ -68,12 +69,12 @@ def download_images_from_csv(csv_file, output_folder):
     df = df.drop(index=rows_to_remove)
     df.to_csv(csv_file, index=False)
 
-input_file = 'images2.csv'
-output_file = 'images_filtered.csv'
+if __name__ == "__main__":
+  input_file = 'images2.csv'
+  output_file = 'images_filtered.csv'
 
-filter_dataframe(input_file, output_file)
+  filter_dataframe(input_file, output_file)
 
-download_path = 'images_filtered.csv'
-output_folder = '../IMAGES'
+  download_path = 'images_filtered.csv'
 
-download_images_from_csv(download_path, output_folder)
+  download_images_from_csv(download_path, output_folder)
