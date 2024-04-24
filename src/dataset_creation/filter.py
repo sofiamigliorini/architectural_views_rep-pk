@@ -12,10 +12,10 @@ import pandas as pd
 import os
 import requests
 from urllib.parse import urlparse
-from src.config import output_folder
+from src.config import output_folder, COMMITS_TRESHOLD, STARS_TRESHOLD
 
 
-def filter_dataframe(input_file, output_file, min_commits_count=10, min_stars_count=2,
+def filter_dataframe(input_file, output_file, min_commits_count=COMMITS_TRESHOLD, min_stars_count=STARS_TRESHOLD,
                      filter_words=['course', 'thesis', 'exam', 'demo', 'example', 'tutorial', 'sample']):
     
     df = pd.read_csv(input_file)
