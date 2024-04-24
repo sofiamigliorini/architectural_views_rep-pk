@@ -52,7 +52,7 @@ This is the root directory of the repository. The directory is structured as fol
     .
     |
     |
-    |--- data/       		                         Data used in the paper
+    |--- data/                                   Data used in the paper
     |      |
     |      |--- analysis/                        Data extraction framework and other analysis data
     |      |--- dataset/                         Dataset data
