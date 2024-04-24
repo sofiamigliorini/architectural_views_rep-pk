@@ -15,8 +15,8 @@ import re
 from urllib.parse import urljoin
 import time
 from datetime import datetime, timedelta
+from src.config import ACCESS_TOKEN
 
-ACCESS_TOKEN = 'YOUR ACCESS TOKEN'
 g = Github(ACCESS_TOKEN)
 
 
@@ -113,12 +113,13 @@ def perform_search(filename):
                 except github.GithubException as ge:
                     print(f'GithubError: {ge}')
 
+if __name__ == "__main__":
 
-with open('images1.csv', 'w', newline='', encoding='utf-8') as csv_file:
-    writer = csv.writer(csv_file)
-    header = ["Repository Name", "Image URL", "Stars", "Contributors", "Forks", "Repo Commits", "Language", "SHA",
-              "Description", "First Repo Commit Date"]
-    writer.writerow(header)
+    with open('images1.csv', 'w', newline='', encoding='utf-8') as csv_file:
+        writer = csv.writer(csv_file)
+        header = ["Repository Name", "Image URL", "Stars", "Contributors", "Forks", "Repo Commits", "Language", "SHA",
+                  "Description", "First Repo Commit Date"]
+        writer.writerow(header)
 
-perform_search('readme')
-perform_search('contributing')
+    perform_search('readme')
+    perform_search('contributing')
