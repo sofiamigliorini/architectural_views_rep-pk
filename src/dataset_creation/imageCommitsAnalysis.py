@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Author: Anonymous
+Email: Anonymous
+
+This script allows to extract data for the commit history analysis.
+"""
+
 import pandas as pd
 
 
