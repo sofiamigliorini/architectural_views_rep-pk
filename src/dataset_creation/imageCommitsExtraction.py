@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Author: Anonymous
+Email: Anonymous
+
+This script allows to retrieve the commit history for images hosted on GitHub.
+"""
+
 from github import Github
 import csv
 import time
