@@ -12,7 +12,7 @@ import pandas as pd
 import os
 import requests
 from urllib.parse import urlparse
-from src.config import output_folder, COMMITS_TRESHOLD, STARS_TRESHOLD
+from src.config import OUTPUT_FOLDER, COMMITS_TRESHOLD, STARS_TRESHOLD
 
 
 def filter_dataframe(input_file, output_file, min_commits_count=COMMITS_TRESHOLD, min_stars_count=STARS_TRESHOLD,
@@ -77,4 +77,4 @@ if __name__ == "__main__":
 
   download_path = 'images_filtered.csv'
 
-  download_images_from_csv(download_path, output_folder)
+  download_images_from_csv(download_path, OUTPUT_FOLDER)
