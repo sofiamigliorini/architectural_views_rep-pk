@@ -9,9 +9,10 @@ This script allows to extracts a data sample from a dataset.
 """
 
 import pandas as pd
+from src.config import SAMPLE_SIZE
 
 
-def sample_dataset(input_file, output_file, sample_size = 373):
+def sample_dataset(input_file, output_file, sample_size = SAMPLE_SIZE):
     remove_repo_duplicates(input_file)
     try:
         data = pd.read_csv('images_dataset_unique_repo.csv')
@@ -30,9 +31,8 @@ def remove_repo_duplicates(input_file):
     except Exception as e:
         print(f"An error occurred: {e}")
 
+if __name__ == "__main__":
+    input_file = 'images_dataset_all.csv'
+    output_file = 'images_dataset_sampled.csv'
 
-input_file = 'images_dataset_all.csv'
-output_file = 'images_dataset_sampled.csv'
-sample_size = 373
-
-sample_dataset(input_file, output_file, sample_size)
+    sample_dataset(input_file, output_file, sample_size)
