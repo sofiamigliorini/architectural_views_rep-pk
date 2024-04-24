@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Author: Anonymous
+Email: Anonymous
+
+This script allows to query GitHub to extract architectural views from readme and contributing files in GitHub repositories.
+"""
+
 import csv
 import github
 from github import Github
