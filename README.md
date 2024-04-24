@@ -60,7 +60,6 @@ This is the root directory of the repository. The directory is structured as fol
     |      |--- dataset_creation/                Scripts relating to steps of the creation of the dataset
     |      |--- 0_dataset_creation.py            Datasets
     |      |--- 1_dataset_analysis.py            Analysis
-    |      |--- analysis/                        Scripts relating to the analysis performed on the dataset
     |      |--- config.py                        Configurations
     |      |--- requirements.txt                 Requirements
 ```
