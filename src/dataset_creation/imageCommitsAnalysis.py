@@ -43,8 +43,8 @@ def add_columns(images_file, commits_file, output_file):
     except Exception as e:
         print("An error occurred:", str(e))
 
-
-images_file = 'images_filtered.csv'
-commits_file = 'commit_history.csv'
-output_file = 'images_dataset_all.csv'
-add_columns(images_file, commits_file, output_file)
+if __name__ == "__main__":
+    images_file = 'images_filtered.csv'
+    commits_file = 'commit_history.csv'
+    output_file = 'images_dataset_all.csv'
+    add_columns(images_file, commits_file, output_file)
