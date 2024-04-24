@@ -1,3 +1,13 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Author: Anonymous
+Email: Anonymous
+
+This script allows to perfor all filtering steps listed in the paper and create the dataset of downloaded images.
+"""
+
 import pandas as pd
 import os
 import requests
