@@ -14,8 +14,8 @@ import time
 from datetime import datetime, timedelta
 import github
 from github import Github
+from src.config import ACCESS_TOKEN
 
-ACCESS_TOKEN = 'YOUR ACCESS TOKEN'
 g = Github(ACCESS_TOKEN)
 
 
@@ -156,21 +156,21 @@ def merge(file1_path, file2_path):
         writer = csv.writer(merged_file)
         writer.writerows(merged_data)
 
+if __name__ == "__main__":
+    remove_duplicates()
+    try:
+        df = pd.read_csv('images_without_duplicates.csv')
+        df[['Downloadable URL', 'Image URL']] = df['Image URL'].apply(create_downloadable_url).apply(pd.Series)
+        df.to_csv('images_with_downloadable_url.csv', index=False)
+    except pd.errors.EmptyDataError:
+        print('No data found in the input file.')
+    except Exception as e:
+        print(f'Error occurred: {str(e)}')
 
-remove_duplicates()
-try:
-    df = pd.read_csv('images_without_duplicates.csv')
-    df[['Downloadable URL', 'Image URL']] = df['Image URL'].apply(create_downloadable_url).apply(pd.Series)
-    df.to_csv('images_with_downloadable_url.csv', index=False)
-except pd.errors.EmptyDataError:
-    print('No data found in the input file.')
-except Exception as e:
-    print(f'Error occurred: {str(e)}')
-
-with open('diff_repos_corrected.csv', 'w', newline='', encoding='utf-8') as csv_file:
-    writer = csv.writer(csv_file)
-    header = ["Repository Name", "Image URL", "Stars", "Contributors", "Forks", "Repo Commits", "Language", "SHA",
+    with open('diff_repos_corrected.csv', 'w', newline='', encoding='utf-8') as csv_file:
+        writer = csv.writer(csv_file)
+        header = ["Repository Name", "Image URL", "Stars", "Contributors", "Forks", "Repo Commits", "Language", "SHA",
               "Description", "First Repo Commit Date", "Downloadable URL"]
-    writer.writerow(header)
-find_image_hosted_diff_repo('images_with_downloadable_url.csv')
-merge('images_with_downloadable_url.csv', 'diff_repo_corrected.csv') 
+        writer.writerow(header)
+    find_image_hosted_diff_repo('images_with_downloadable_url.csv')
+    merge('images_with_downloadable_url.csv', 'diff_repo_corrected.csv') 
